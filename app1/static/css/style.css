@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.hotel {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+}
+.hotel h2 {
+    margin: 0 0 10px 0;
+}
+.hotel-details, .habitaciones, .servicios {
+    margin: 10px 0;
+}
+.habitaciones h3, .servicios h3 {
+    margin-top: 10px;
+}
+.btn-actualizar {
+    display: block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-actualizar:hover {
+    background-color: #0056b3;
+}

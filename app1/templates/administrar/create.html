@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" typo="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/alerta.js' %}"></script>  
+
+    <title>HOTELES - CREAR</title>
+</head>
+<body>
+    <h1>Inventario de Hoteles VERANUM CREAR</h1>
+    <div class="hotel">
+
+        <h2>Nombre del Hotel</h2>
+        <input type="text">
+        <div class="hotel-details">
+            <p><strong>Ubicación:</strong> <input type="text"> </p>
+            <p><strong>Cantidad de Habitaciones:</strong> 
+                <input type="text">
+            </p>
+        </div>
+        <div class="habitaciones">
+            <h3>Habitaciones</h3>
+            <ul>
+                <li>Tipo:</li> 
+                <select id="tipo-habitacion">
+                    {% for item in tipo_habitacion %}
+                    <option value="{{ item.id_tipo_habitacion }}">{{ item.tipo }}</option>
+                    {% endfor %}
+                </select>
+            </ul>
+
+            <div class="show-roms" style="display:none">
+                
+            </div>
+            
+
+            <button class="btnAddHabitacion">Agregar Habitacion</button>
+
+        </div>
+        <div class="servicios">
+            <h3>Servicios Extras</h3>
+            <ul>
+                <li>Servicio: Gimnasio</li>
+                <select name="cars" id="cars">
+                    {% for item in servicios %}
+                    <option value="{{ item.id }}">{{ item.servicio }}</option>
+                    {% endfor %}
+                </select>
+            </ul>
+        </div>
+        <!-- <button class="btn-actualizar">Limpiar</button> -->
+        <!-- <button class="btn-actualizar">Guardar</button> -->
+    </div>
+
+  
+
+    <script src="script.js"></script>
+</body>
+
+<script>
+    let listaHabitacion = []
+
+    let showRoms = document.querySelector(".show-roms");
+    showRoms.style.display = "none"
+
+    let tipoHabitaciones = JSON.parse('{{ tipo_habitacion_json | safe }}');
+    tipoHabitaciones.forEach(habitacion => {
+                // console.log(habitacion.id_tipo_habitacion, habitacion.tipo);
+                // Aquí puedes realizar otras operaciones con cada habitación
+    });
+
+    document.querySelector(".btnAddHabitacion").addEventListener("click", ()=>{
+        
+
+        let tipoHabitacion = document.getElementById("tipo-habitacion").value;
+
+        tipoHabitaciones.forEach(habitacion => {
+            if(tipoHabitacion == habitacion.id_tipo_habitacion){
+                listaHabitacion.push({'id':tipoHabitacion, 'tipo': habitacion.tipo, 'precio' : habitacion.precio})
+            }
+
+        });
+
+        console.log(listaHabitacion)
+
+
+
+        if(tipoHabitacion.length > 0){
+            showRoms.style.display = "block"
+            
+            listaHabitacion.forEach(element => {
+                showRoms.innerHTML += `<span>${element.id}-${element.tipo}-${element.precio}</span><br>`
+            });
+
+        }
+        // <span>hola</span><br>
+        console.log(tipoHabitacion)
+        console.log(listaHabitacion.length  )
+
+    })
+
+
+</script>
+
+</html>

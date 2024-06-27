@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" typo="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/alerta.js' %}"></script>  
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inventario de Hoteles VERANUM</h1>
+    <button class="btn-actualizar" onclick="actualizarInventario()">Actualizar Inventario</button>
+
+    <div class="hotel">
+        <h2>Hotel Santiago</h2>
+        <div class="hotel-details">
+            <p><strong>Ubicación:</strong> Santiago, Chile</p>
+            <p><strong>Cantidad de Habitaciones:</strong> 100</p>
+        </div>
+        <div class="habitaciones">
+            <h3>Habitaciones</h3>
+            <ul>
+                <li>Tipo: Simple, Capacidad: 1 persona, Camas: 1, Baños: 1, Precio: $50.00</li>
+                <li>Tipo: Doble, Capacidad: 2 personas, Camas: 2, Baños: 1, Precio: $80.00</li>
+            </ul>
+        </div>
+        <div class="servicios">
+            <h3>Servicios Extras</h3>
+            <ul>
+                <li>Servicio: Gimnasio, Precio: $10.00</li>
+                <li>Servicio: Piscina, Precio: $15.00</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="hotel">
+        <h2>Hotel V Región</h2>
+        <div class="hotel-details">
+            <p><strong>Ubicación:</strong> Valparaíso, Chile</p>
+            <p><strong>Cantidad de Habitaciones:</strong> 80</p>
+        </div>
+        <div class="habitaciones">
+            <h3>Habitaciones</h3>
+            <ul>
+                <li>Tipo: Simple, Capacidad: 1 persona, Camas: 1, Baños: 1, Precio: $45.00</li>
+                <li>Tipo: Doble, Capacidad: 2 personas, Camas: 2, Baños: 1, Precio: $75.00</li>
+            </ul>
+        </div>
+        <div class="servicios">
+            <h3>Servicios Extras</h3>
+            <ul>
+                <li>Servicio: Gimnasio, Precio: $10.00</li>
+                <li>Servicio: Piscina, Precio: $15.00</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

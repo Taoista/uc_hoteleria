@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" typo="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/alerta.js' %}"></script>  
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inventario de Hoteles VERANUM</h1>
+    <button class="btn-actualizar" onclick="actualizarInventario()">Actualizar Inventario</button>
+
+    {% for item in hoteles%}
+    <div class="hotel">
+        <h2>{{ item.nombre }}</h2>
+        <div class="hotel-details">
+            <p><strong>Ubicación:</strong> {{ item.ubicacion }}</p>
+            <p><strong>Cantidad de Habitaciones:</strong> {{ item.cantidad }}</p>
+        </div>
+        <div class="habitaciones">
+            <h3>Habitaciones</h3>
+            <ul>
+                {% for habitacion in item.tipohabitacion_set.all %}
+                <li>Tipo: {{ habitacion.tipo }}, Capacidad: {{ habitacion.capacidad }} persona, Camas: {{ habitacion.camas }}, Baños: {{ habitacion.banos }}, Precio: {{ habitacion.precio }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="servicios">
+            <h3>Servicios Extras</h3>
+            <ul>
+                {% for servicio in item.servicios_set.all %}
+                <li>Servicio: {{ servicio.servicio }}, Precio: {{ servicio.precio }}</li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+
+    
+   
+
+
+    <script src="script.js"></script>
+</body>
+</html>
